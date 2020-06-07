@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { LANGS } from './lang-dropdown.models';
+import { LANGS, Lang } from './lang-dropdown.models';
 
 @Component({
   selector: 'app-lang-dropdown',
@@ -8,5 +8,7 @@ import { LANGS } from './lang-dropdown.models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LangDropdownComponent {
+  @Input() selectedLang: Lang;
+
   public readonly langs = LANGS;
 }

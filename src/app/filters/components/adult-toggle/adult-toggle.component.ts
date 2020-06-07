@@ -3,10 +3,9 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 @Component({
   selector: 'app-adult-toggle',
   templateUrl: './adult-toggle.component.html',
-  styleUrls: ['./adult-toggle.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdultToggleComponent {
-  @Input() checked: boolean;
+  @Input() isAdult: boolean;
   @Output() stateChange = new EventEmitter<boolean>();
 }

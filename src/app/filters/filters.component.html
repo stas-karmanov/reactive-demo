@@ -1,4 +1,4 @@
-<app-search (searchChange)="onSearchChange($event)"></app-search>
-<app-year-dropdown></app-year-dropdown>
-<app-lang-dropdown></app-lang-dropdown>
-<app-adult-toggle [checked]="true"></app-adult-toggle>
+<app-search (searchChange)="(0)"></app-search>
+<app-year-dropdown [selectedYear]="year$ | async"></app-year-dropdown>
+<app-lang-dropdown [selectedLang]="lang$ | async"></app-lang-dropdown>
+<app-adult-toggle [isAdult]="isAdult$ | async"></app-adult-toggle>
