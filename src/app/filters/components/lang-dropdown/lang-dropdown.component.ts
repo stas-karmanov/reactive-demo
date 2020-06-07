@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 import { LANGS, Lang } from './lang-dropdown.models';
 
@@ -9,6 +9,7 @@ import { LANGS, Lang } from './lang-dropdown.models';
 })
 export class LangDropdownComponent {
   @Input() selectedLang: Lang;
+  @Output() langChange = new EventEmitter<Lang>();
 
   public readonly langs = LANGS;
 }
