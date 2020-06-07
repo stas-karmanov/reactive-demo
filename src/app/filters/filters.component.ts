@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject, Subscription, combineLatest } from 'rxjs';
+import { debounceTime, withLatestFrom, map, filter } from 'rxjs/operators';
 import isEqual from 'lodash/isEqual';
 
 import { Lang } from './components/lang-dropdown/lang-dropdown.models';
-import { debounceTime, withLatestFrom, map, filter } from 'rxjs/operators';
 import { StateService } from '../state/state.service';
 import { FiltersService } from '../services';
 
