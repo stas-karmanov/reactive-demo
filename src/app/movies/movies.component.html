@@ -1,0 +1,3 @@
+<div class="movies">
+  <app-movie *ngFor="let movie of movies$ | async; trackBy: trackByMovieId" [movie]="movie"></app-movie>
+</div>

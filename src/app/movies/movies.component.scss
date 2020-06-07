@@ -1,0 +1,11 @@
+.movies {
+  padding: 0 8%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  app-movie {
+    width: 15%;
+    margin: 30px;
+  }
+}

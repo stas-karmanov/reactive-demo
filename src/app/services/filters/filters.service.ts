@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 
 import { IFiltersState, DEFAULT_FILTERS_STATE } from './filters.models';
-import { Lang } from './components/lang-dropdown/lang-dropdown.models';
+import { Lang } from '../../filters/components/lang-dropdown/lang-dropdown.models';
 
 @Injectable({
   providedIn: 'root',

@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
-import { FiltersService } from './filters.service';
 import { Observable, Subject, Subscription, combineLatest } from 'rxjs';
 import isEqual from 'lodash/isEqual';
 
 import { Lang } from './components/lang-dropdown/lang-dropdown.models';
 import { debounceTime, withLatestFrom, map, filter } from 'rxjs/operators';
 import { StateService } from '../state/state.service';
+import { FiltersService } from '../services';
 
 @Component({
   selector: 'app-filters',

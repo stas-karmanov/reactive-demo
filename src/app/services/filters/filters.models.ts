@@ -1,4 +1,4 @@
-import { Lang } from './components/lang-dropdown/lang-dropdown.models';
+import { Lang } from '../../filters/components/lang-dropdown/lang-dropdown.models';
 
 export interface IFiltersState {
   searchQuery: string;

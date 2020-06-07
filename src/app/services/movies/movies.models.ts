@@ -1,4 +1,4 @@
-export interface IMovieResult {
+export interface IMovie {
   popularity: number;
   id: number;
   video: boolean;
@@ -19,5 +19,5 @@ export interface IMoviesResponse {
   page: number;
   total_results: number;
   total_pages: number;
-  results: IMovieResult[];
+  results: IMovie[];
 }

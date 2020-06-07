@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FiltersModule } from './filters/filters.module';
+import { MoviesModule } from './movies/movies.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, FiltersModule, HttpClientModule],
+  imports: [BrowserModule, BrowserAnimationsModule, FiltersModule, HttpClientModule, MoviesModule],
   providers: [],
   bootstrap: [AppComponent],
 })

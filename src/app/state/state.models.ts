@@ -1,4 +1,4 @@
-import { IFiltersState, DEFAULT_FILTERS_STATE } from '../filters/filters.models';
+import { IFiltersState, DEFAULT_FILTERS_STATE } from '../services';
 
 export interface IState {
   filters: IFiltersState;
