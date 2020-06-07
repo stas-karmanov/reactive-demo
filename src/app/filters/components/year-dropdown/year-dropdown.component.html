@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Year</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let item of yearsRange" [value]="item.year">
+      {{ item.year }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

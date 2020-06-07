@@ -6,4 +6,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./filters.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FiltersComponent {}
+export class FiltersComponent {
+  public onSearchChange(value: string) {
+    console.log(value);
+  }
+}
