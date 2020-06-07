@@ -1,4 +1,8 @@
-<app-search (searchChange)="search$.next($event)"></app-search>
-<app-year-dropdown [selectedYear]="year$ | async" (yearChange)="onYearChange($event)"></app-year-dropdown>
-<app-lang-dropdown [selectedLang]="lang$ | async" (langChange)="onLangChange($event)"></app-lang-dropdown>
-<app-adult-toggle [isAdult]="isAdult$ | async" (stateChange)="onToggleStateChange($event)"></app-adult-toggle>
+<div class="filters">
+  <app-search (searchChange)="searchQuery$.next($event)"></app-search>
+  <app-year-dropdown [selectedYear]="year$ | async" (yearChange)="onYearChange($event)"></app-year-dropdown>
+  <app-lang-dropdown [selectedLang]="lang$ | async" (langChange)="onLangChange($event)"></app-lang-dropdown>
+  <app-adult-toggle [isAdult]="isAdult$ | async" (stateChange)="onToggleStateChange($event)"></app-adult-toggle>
+</div>
+
+<app-search-button [isActive]="isSearchButtonActive$ | async" (search)="search$.next()"></app-search-button>

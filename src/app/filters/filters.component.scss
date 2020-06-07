@@ -1,6 +1,14 @@
-:host {
-  padding: 30px;
+:host,
+.filters {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+:host {
+  padding: 2% 8%;
+}
+
+.filters {
+  width: 50%;
 }

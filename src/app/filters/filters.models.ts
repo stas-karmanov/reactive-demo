@@ -7,7 +7,7 @@ export interface IFiltersState {
   isAdult: boolean;
 }
 
-export const DEFAULT_STATE: IFiltersState = {
+export const DEFAULT_FILTERS_STATE: IFiltersState = {
   searchQuery: '',
   year: 2020,
   lang: Lang.US,

@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { FiltersService } from './filters.service';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, combineLatest } from 'rxjs';
+import isEqual from 'lodash/isEqual';
 
 import { Lang } from './components/lang-dropdown/lang-dropdown.models';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, withLatestFrom, map, filter } from 'rxjs/operators';
+import { StateService } from '../state/state.service';
 
 @Component({
   selector: 'app-filters',
@@ -16,15 +18,33 @@ export class FiltersComponent implements OnInit, OnDestroy {
   public year$: Observable<number> = this.filtersService.select(({ year }) => year);
   public isAdult$: Observable<boolean> = this.filtersService.select(({ isAdult }) => isAdult);
 
-  public search$ = new Subject<string>();
+  public isSearchButtonActive$: Observable<boolean> = combineLatest([
+    this.filtersService.select(state => state),
+    this.state.select(({ filters }) => filters),
+  ]).pipe(map(([currentFiltersState, filtersState]) => !isEqual(currentFiltersState, filtersState)));
+
+  public searchQuery$ = new Subject<string>();
+  public search$ = new Subject<void>();
 
   private subscriptions = new Subscription();
 
-  constructor(private filtersService: FiltersService) {}
+  constructor(private filtersService: FiltersService, private state: StateService) {}
 
   ngOnInit() {
     this.subscriptions.add(
-      this.search$.pipe(debounceTime(300)).subscribe(searchQuery => this.filtersService.updateSearchQuery(searchQuery)),
+      this.searchQuery$.pipe(debounceTime(300)).subscribe(searchQuery => this.filtersService.updateSearchQuery(searchQuery)),
+    );
+
+    this.subscriptions.add(
+      this.search$
+        .pipe(
+          withLatestFrom(
+            this.filtersService.select(state => state),
+            this.isSearchButtonActive$,
+          ),
+          filter(([, , isSearchButtonActive]) => isSearchButtonActive),
+        )
+        .subscribe(([, filtersState]) => this.state.updateFilters(filtersState)),
     );
   }
 
